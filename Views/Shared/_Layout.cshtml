@@ -1,0 +1,75 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kindr</title>
+
+    <!--Import Google Icon Font-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <!-- CSS required for Slider -->
+    <link href="~/css/nouislider.css" rel="stylesheet" />
+
+
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Profile</a>
+
+                <ul id="slide-out" class="side-nav">
+                    <li><a href="#!">Missions</a></li>
+                    <li><a href="~/Views/Home/AcceptedAOK.cshtml"><i class="material-icons acceptCircle">check_circle</i>Accepted</a></li>
+                    <li><a href="#!">Leaderboards</a></li>
+                    <li>
+                        @Html.ActionLink("Create Mission", "CreateMission", "Home", null, new { @class = "btn wave-effect wave-light" })
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+
+                <a href="#" class="right"> @User.Identity.Name </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            @RenderBody()
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p class="center">&copy; @DateTime.Now.Year - Kindr</p>
+    </footer>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+    <script src="~/js/site.js"></script>
+
+    <!-- JS for Sliders -->
+    <script src="~/js/nouislider.js"></script>
+
+
+    @RenderSection("Scripts", false)
+
+</body>
+</html>
